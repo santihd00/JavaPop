@@ -1,0 +1,17 @@
+Venta:{nProducto:{
+Título: Ps4 
+Descripción:Consola de videojuegos de sobremesa
+Categoría: CONSOLAS_VIDEOJUEGOS
+Estado: NUEVO
+Precio: 400€
+Foto: consola_playstation_1.jpg
+Fecha de publicación: Sun May 10 23:42:40 CEST 2020
+Ubicación: 28404
+}
+
+Fecha de venta: Sun May 10 23:42:44 CEST 2020nDatos comprador:n- DNI:94820192T
+- Nombre: Maria Delgado
+Datos vendedor:n- DNI:39393930G
+- Nombre: Miguel Núñez
+}
+

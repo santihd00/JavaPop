@@ -1,0 +1,13 @@
+Venta:{nProducto:{
+Título: Nintendo Switch
+Descripción:Consola portátil
+Categoría: CONSOLAS_VIDEOJUEGOS
+Estado: REGULAR
+}
+
+Fecha de venta: Sun May 10 21:22:34 CEST 2020nDatos comprador:n- DNI:02713729L
+- Nombre: Juan Valero
+Datos vendedor:n- DNI:93892810S
+- Nombre: Alejandro Blanco
+}
+
