@@ -7,25 +7,25 @@ package com.practica.programacion.gui;
 
 import java.awt.event.ActionEvent;
 
-
-
 /**
  *
  * @author Santiago Hernández
  */
-public abstract class Listas extends javax.swing.JInternalFrame {
+public abstract class Listas extends javax.swing.JInternalFrame {//Esta es la clase de swing básica para productos propios, productos por confirmar y gestión tanto de usuarios como productos
 
     /**
      * Creates new form ProductosPropios
+     *
+     * @param modelo
      */
     public Listas(ListaElementos modelo) {
-        this.modelo=modelo;
+        this.modelo = modelo;
         initComponents();
         init();
- 
+
     }
-    
-   ListaElementos modelo;
+//variable de tipo ListaElementos 
+    ListaElementos modelo;
 
     public void init() {
 
@@ -104,15 +104,15 @@ public abstract class Listas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-      button1(evt);
+        button1(evt);
     }//GEN-LAST:event_button1ActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        
+
     }//GEN-LAST:event_formFocusGained
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-         button2(evt);
+        button2(evt);
     }//GEN-LAST:event_button2ActionPerformed
 
 
@@ -123,9 +123,8 @@ public abstract class Listas extends javax.swing.JInternalFrame {
     protected javax.swing.JTable tElementos;
     // End of variables declaration//GEN-END:variables
 
-    abstract protected void button2(ActionEvent evt) ;
+    abstract protected void button2(ActionEvent evt);
 
-    abstract protected void button1(ActionEvent evt) ;
+    abstract protected void button1(ActionEvent evt);
 
-       
 }

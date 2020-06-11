@@ -8,17 +8,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
+
 /**
  *
  * @author Santiago Hernández
  */
 public class ListaClientes extends ListaElementos {
 
-    
-    
 //Definir un array de strings en linea
     public ListaClientes(ArrayList<Cliente> clientes) {
-        super(new String[]{"Nombre", "DNI", "Tarjeta de crédito", "Ubicación"},(ArrayList)clientes);        
+        super(new String[]{"Nombre", "DNI", "Tarjeta de crédito", "Ubicación"}, (ArrayList) clientes);
     }
     //TODO: Cambiar columnas de clientes 
 
@@ -38,7 +37,7 @@ public class ListaClientes extends ListaElementos {
             case 3:
                 clase = String.class;
                 break;
-          
+
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
         }
@@ -50,7 +49,7 @@ public class ListaClientes extends ListaElementos {
     public Object getValueAt(int rowIndex, int columnIndex) {
         // Buscamos el Producto correspondiente a la línea solicitada
         Object o = null;
-        Cliente p = (Cliente)elementos.get(rowIndex);
+        Cliente p = (Cliente) elementos.get(rowIndex);
         switch (columnIndex) {
             case 0:
                 o = p.getNombre();
@@ -70,7 +69,5 @@ public class ListaClientes extends ListaElementos {
         return o;
     }
 //TODO: devolver clases
-   
-
 
 }

@@ -7,19 +7,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
+
 /**
  *
  * @author Santiago Hernández
  */
 public class ListaProductosPropios extends ListaElementos {
 
-    
-    
 //Definir un array de strings en linea
     public ListaProductosPropios(ArrayList<Producto> productos) {
-        super(new String[]{"Título", "Descripción", "Categoría", "Estado", "Precio", "Fecha publicación"},(ArrayList)productos);        
+        super(new String[]{"Título", "Descripción", "Categoría", "Estado", "Precio", "Fecha publicación"}, (ArrayList) productos);
     }
-
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
@@ -49,12 +47,11 @@ public class ListaProductosPropios extends ListaElementos {
         return clase;
     }
 
-
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         // Buscamos el Producto correspondiente a la línea solicitada
         Object o = null;
-        Producto p = (Producto)elementos.get(rowIndex);
+        Producto p = (Producto) elementos.get(rowIndex);
         switch (columnIndex) {
             case 0:
                 o = p.getTitulo();
@@ -79,8 +76,5 @@ public class ListaProductosPropios extends ListaElementos {
         }
         return o;
     }
-
-   
-
 
 }

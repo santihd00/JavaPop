@@ -19,7 +19,7 @@ public class InicioSesion extends javax.swing.JInternalFrame {
      */
     public InicioSesion() {
         initComponents();
-    tfError.setVisible(false);
+        tfError.setVisible(false);
     }
 
     /**
@@ -126,21 +126,24 @@ public class InicioSesion extends javax.swing.JInternalFrame {
     private void tfClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfClaveActionPerformed
-
+    /**
+     * Botón que sirve para verificar que existe el usuario y establecerlo como usuario logueado
+     */
     private void bInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInicioSesionActionPerformed
         // TODO add your handling code here:
         tfError.setText("");
-        Usuario usuario=Tienda.tienda.verificarUsuario(tfCorreo.getText(), tfClave.getText());
-        if(usuario == null){
+        Usuario usuario = Tienda.tienda.verificarUsuario(tfCorreo.getText(), tfClave.getText());
+        if (usuario == null) {
             tfError.setText("El correo o la clave son incorrectos");
-        }
-        else{
+        } else {
             Tienda.tienda.setUsuarioLogueado(usuario);
             Tienda.tienda.getVentanaPrincipal().usuarioLogueado();
             this.setVisible(false);
         }
     }//GEN-LAST:event_bInicioSesionActionPerformed
-
+    /**
+     * Botón que sirve para que acceda a la pantalla de registro a través del método de ventana principal
+     */
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
         Tienda.tienda.getVentanaPrincipal().RegistrarUsuario();
         this.setVisible(false);
@@ -150,7 +153,7 @@ public class InicioSesion extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tfCorreoActionPerformed
 
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bInicioSesion;
     private javax.swing.JButton bRegistrarse;

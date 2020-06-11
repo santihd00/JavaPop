@@ -7,7 +7,7 @@ package com.practica.programacion.gui;
 
 /**
  *
- * @author Santi
+ * @author Santiago Hernández
  */
 public class GestionProductos extends javax.swing.JInternalFrame {
 

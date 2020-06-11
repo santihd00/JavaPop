@@ -17,26 +17,27 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-        initComponents();          
+        initComponents();
         mAdministracion.setVisible(false);
-            mFile.setVisible(true);
-            mCompra.setVisible(false);
-            mVenta.setVisible(false);
-            mPerfil.setVisible(false);
-        
+        mFile.setVisible(true);
+        mCompra.setVisible(false);
+        mVenta.setVisible(false);
+        mPerfil.setVisible(false);
+
         inicses = new InicioSesion();
         this.add(inicses);
         inicses.setVisible(true);
         Tienda.tienda.setVentanaPrincipal(this);
 
     }
-public void RegistrarUsuario(){
-    Registrarse registro=new Registrarse();
-    this.add(registro);
-        registro.setVisible(true);
-}
 
-   public void inicioSesion(){
+    public void RegistrarUsuario() {
+        Registrarse registro = new Registrarse();
+        this.add(registro);
+        registro.setVisible(true);
+    }
+
+    public void inicioSesion() {
         inicses.setVisible(true);
     }
 
@@ -191,9 +192,9 @@ public void RegistrarUsuario(){
     }//GEN-LAST:event_miCerrarSesionActionPerformed
 
     private void miPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPerfilActionPerformed
-Registrarse registro= new Registrarse((Cliente) Tienda.tienda.getUsuarioLogueado());
-this.add(registro);
-registro.setVisible(true);
+        Registrarse registro = new Registrarse((Cliente) Tienda.tienda.getUsuarioLogueado());
+        this.add(registro);
+        registro.setVisible(true);
     }//GEN-LAST:event_miPerfilActionPerformed
 
     private void miProductosPropiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProductosPropiosActionPerformed
@@ -222,9 +223,9 @@ registro.setVisible(true);
     }//GEN-LAST:event_miProductosCompradosActionPerformed
 
     private void miGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionUsuariosActionPerformed
-Clientes clientes=new Clientes();
-this.add(clientes);
-clientes.setVisible(true);
+        Clientes clientes = new Clientes();
+        this.add(clientes);
+        clientes.setVisible(true);
     }//GEN-LAST:event_miGestionUsuariosActionPerformed
 
     /**

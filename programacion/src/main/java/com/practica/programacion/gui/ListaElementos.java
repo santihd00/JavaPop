@@ -3,18 +3,23 @@ package com.practica.programacion.gui;
 import java.util.ArrayList;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
+
 /**
  *
  * @author Santiago Hernández
  */
-public abstract class ListaElementos extends AbstractTableModel {
+public abstract class ListaElementos extends AbstractTableModel {//Esta es la clase de java básica para  productos propios, productos por confirmar y gestión tanto de usuarios como productos
 
-    String[] columnas ;
+    String[] columnas;
     ArrayList elementos;
-
-    public ListaElementos(String[] columnas ,ArrayList elementos) {
+    /**
+     * Método que sirve para obtener una lista de elementos(dependiendo de la clase que extienda de esta será de productos o usuarios)
+     * @param columnas
+     * @param elementos
+     */
+    public ListaElementos(String[] columnas, ArrayList elementos) {
         this.elementos = elementos;
-        this.columnas=columnas;
+        this.columnas = columnas;
     }
 
     @Override
@@ -45,7 +50,6 @@ public abstract class ListaElementos extends AbstractTableModel {
         return false;
     }
 
-
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         // TODO Auto-generated method stub
@@ -65,8 +69,8 @@ public abstract class ListaElementos extends AbstractTableModel {
     }
 
     void removeRow(int row) {
-       elementos.remove(row);
-       fireTableRowsDeleted(row, row);
+        elementos.remove(row);
+        fireTableRowsDeleted(row, row);
     }
 
 }

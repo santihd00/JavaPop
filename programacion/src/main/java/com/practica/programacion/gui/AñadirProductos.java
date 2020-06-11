@@ -20,17 +20,19 @@ import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author Santi
+ * @author Santiago Hernández
  */
 public class AñadirProductos extends javax.swing.JDialog {
+
     DateFormat sdfDD_MM_YYYY = new SimpleDateFormat("dd_MM_yyyy");
+
     /**
      * Creates new form AñadirProductos
      */
     public AñadirProductos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        Date fechaActual=new Date();
+        Date fechaActual = new Date();
         tfFechaPublicacion.setText(sdfDD_MM_YYYY.format(fechaActual));
     }
 
@@ -161,8 +163,8 @@ public class AñadirProductos extends javax.swing.JDialog {
         Cliente cliente = (Cliente) Tienda.tienda.getUsuarioLogueado();
         producto.setTitulo(tfTitulo.getText());
         producto.setDescripcion(tfDescripcion.getText());
-        producto.setCategoria((TipoProducto)cbCategoria.getSelectedItem());
-        producto.setEstado((EstadoProducto)cbEstado.getSelectedItem());
+        producto.setCategoria((TipoProducto) cbCategoria.getSelectedItem());
+        producto.setEstado((EstadoProducto) cbEstado.getSelectedItem());
         producto.setPrecio(Double.parseDouble(tfPrecio.getText()));
         try {
             producto.setFechaPublicacion(sdfDD_MM_YYYY.parse(tfFechaPublicacion.getText()));
@@ -170,9 +172,9 @@ public class AñadirProductos extends javax.swing.JDialog {
             Logger.getLogger(AñadirProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
         cliente.añadirProducto(producto);
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_bRegistrarProductoActionPerformed
 
     private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed

@@ -8,7 +8,6 @@ package com.practica.programacion.gui;
 import com.practica.programacion.Cliente;
 import com.practica.programacion.ClienteProfesional;
 import com.practica.programacion.Tienda;
-import com.practica.programacion.Usuario;
 
 /**
  *
@@ -24,7 +23,8 @@ public class Registrarse extends javax.swing.JInternalFrame {
         establecerPanel();
 
     }
-public Registrarse(Cliente cliente){
+
+    public Registrarse(Cliente cliente) {
         initComponents();
         setCliente(cliente);
         establecerPanel();
@@ -41,9 +41,9 @@ public Registrarse(Cliente cliente){
         tfWeb.setEnabled(false);
         rbCliente.setEnabled(false);
         rbClienteProfesional.setEnabled(false);
-        
-        // TODO: Deshabilitar todos los campos del formulario
-}
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -252,7 +252,9 @@ public Registrarse(Cliente cliente){
     private void rbClienteProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbClienteProfesionalActionPerformed
         establecerPanel();
     }//GEN-LAST:event_rbClienteProfesionalActionPerformed
-
+    /**
+     * Método que sirve para guardar los datos del nuevo usuario registrado
+     */
     private void bRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistroActionPerformed
         Cliente cliente;
         if (jPanel1.isVisible()) {
@@ -269,6 +271,9 @@ public Registrarse(Cliente cliente){
         Tienda.tienda.getVentanaPrincipal().inicioSesion();
         this.dispose();
     }//GEN-LAST:event_bRegistroActionPerformed
+    /**
+     * Método que sirve para obtener los datos del nuevo usuario
+     */
     private Cliente getCliente(Cliente cliente) {
         cliente.setCorreo(tfCorreo.getText());
         cliente.setClave(tfClave.getText());
@@ -278,30 +283,42 @@ public Registrarse(Cliente cliente){
         cliente.setUbicacion(tfUbicacion.getText());
         return cliente;
     }
-private void setCliente(Cliente cliente){
-     tfCorreo.setText(cliente.getCorreo());
-     tfClave.setText(cliente.getClave());
-     tfNombre.setText(cliente.getNombre());
-     tfDNI.setText(cliente.getDNI());
-     tfTarjetaCredito.setText(cliente.getTarjetaDeCredito());
-     tfUbicacion.setText(cliente.getUbicacion());
-     if(cliente instanceof ClienteProfesional){
-         rbClienteProfesional.setSelected(true);
-         tfDescripcion.setText(((ClienteProfesional) cliente).getDescripcion());
-         tfHorarioApertura.setText(((ClienteProfesional) cliente).getHorarioApertura());
-         tfTelefono.setText(((ClienteProfesional) cliente).getTelefono());
-         tfWeb.setText(((ClienteProfesional) cliente).getWeb());
-     }
-     else{
-             rbClienteProfesional.setSelected(false);    
-                 
-     }
 
-}
+    /**
+     * Método que sirve para establecer los datos del nuevo usuario
+     */
+    private void setCliente(Cliente cliente) {
+        tfCorreo.setText(cliente.getCorreo());
+        tfClave.setText(cliente.getClave());
+        tfNombre.setText(cliente.getNombre());
+        tfDNI.setText(cliente.getDNI());
+        tfTarjetaCredito.setText(cliente.getTarjetaDeCredito());
+        tfUbicacion.setText(cliente.getUbicacion());
+        if (cliente instanceof ClienteProfesional) {//si el nuevo usuario es un cliente profesional establece los datos del cliente normal + los datos dentro del jpanel
+            rbClienteProfesional.setSelected(true);
+            tfDescripcion.setText(((ClienteProfesional) cliente).getDescripcion());
+            tfHorarioApertura.setText(((ClienteProfesional) cliente).getHorarioApertura());
+            tfTelefono.setText(((ClienteProfesional) cliente).getTelefono());
+            tfWeb.setText(((ClienteProfesional) cliente).getWeb());
+        } else {
+            rbClienteProfesional.setSelected(false);
+
+        }
+
+    }
+
+    /**
+     * botón de cliente que hace que no salga el jpanel de los datos de cliente
+     * profesional
+     */
 
     private void rbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbClienteActionPerformed
         establecerPanel();
     }//GEN-LAST:event_rbClienteActionPerformed
+    /**
+     * Método que sirve para establecer cuando el panel de datos del cliente
+     * profesional tiene que salir o no
+     */
     private void establecerPanel() {
         if (rbCliente.isSelected()) {
             jPanel1.setVisible(false);

@@ -20,13 +20,14 @@ public class ProductosComprados extends javax.swing.JInternalFrame {
     public ProductosComprados() {
         initComponents();
     }
-ListaProductosPropios modelo2;
+    ListaProductosPropios modelo2;
 
     public void init() {
         Cliente cliente = (Cliente) Tienda.tienda.getUsuarioLogueado();
         modelo2 = new ListaProductosPropios(cliente.getMisProductos());
-        
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

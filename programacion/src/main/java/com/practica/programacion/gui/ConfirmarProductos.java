@@ -7,7 +7,7 @@ package com.practica.programacion.gui;
 
 /**
  *
- * @author Santi
+ * @author Santiago Hernández
  */
 public class ConfirmarProductos extends javax.swing.JInternalFrame {
 
