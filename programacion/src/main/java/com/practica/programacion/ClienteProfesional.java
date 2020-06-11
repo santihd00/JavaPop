@@ -2,7 +2,6 @@
  * 2020, All rights reserved.
  ****************************************************************************** */
 package com.practica.programacion;
-
 import java.io.Serializable;
 // Start of user code (user defined imports)
 
@@ -13,7 +12,7 @@ import java.io.Serializable;
  * @author Santiago Hernández
  */
 public class ClienteProfesional extends Cliente implements Serializable {
-
+//esta clase obtiene las variables de la clase cliente e implementa la clase serializable que sirve solamente para especificar que todo el estado de un objeto instanciado podrá ser escrito o enviado en la red como una trama de bytes
     private static final long serialVersionUID = 50L;
     /**
      * Description of the property descripcion.
@@ -143,6 +142,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
         this.web = newWeb;
     }
 
+    @Override
     public String toString() {
         String txt = "Cliente Profesional:{\n";
         txt = txt + "Descripción: " + getDescripcion() + "\n";

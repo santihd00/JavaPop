@@ -5,10 +5,8 @@ package com.practica.programacion;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-// Start of user code (user defined imports)
 
+// Start of user code (user defined imports)
 // End of user code
 /**
  * Description of Producto.
@@ -18,6 +16,7 @@ import java.util.Iterator;
 public class Producto implements Serializable {
 
     private static final long serialVersionUID = 40L;
+//variable de las diferentes categorías que puede tener un producto
 
     public enum TipoProducto {
         MODA_ACCESORIOS("Moda y accesorios"),
@@ -27,14 +26,18 @@ public class Producto implements Serializable {
         CONSOLAS_VIDEOJUEGOS("Consolas y videojuegos"),
         DEPORTE_OCIO("Deporte y ocio");
         String nombre;
-        TipoProducto(String nombre){
-            this.nombre=nombre;
+
+        TipoProducto(String nombre) {
+            this.nombre = nombre;
         }
-        public String toString(){
+
+        @Override
+        public String toString() {
             return nombre;
         }
-        
+
     }
+//varibale de los diferentes estados en los que puede estar un producto
 
     public enum EstadoProducto {
         NUEVO("Nuevo"),
@@ -42,11 +45,14 @@ public class Producto implements Serializable {
         BUENO("Bueno"),
         ACEPTABLE("Aceptable"),
         REGULAR("Regular");
-         String nombre;
-        EstadoProducto(String nombre){
-            this.nombre=nombre;
+        String nombre;
+
+        EstadoProducto(String nombre) {
+            this.nombre = nombre;
         }
-        public String toString(){
+
+        @Override
+        public String toString() {
             return nombre;
         }
     }
@@ -58,7 +64,7 @@ public class Producto implements Serializable {
     protected String descripcion = "";
     protected TipoProducto categoria = null;
     protected EstadoProducto estado = null;
-    protected boolean vendido = false;
+    protected boolean vendido = false;//variable para saber si el producto está ya vendido o no
     protected Double precio = 0.0;
     protected String foto = "";
     protected Date fechaPublicacion = null;
@@ -180,6 +186,7 @@ public class Producto implements Serializable {
         this.estado = estado;
     }
 
+    @Override
     public String toString() {
         String txt = "Producto:{\n";
         txt = txt + "Título: " + getTitulo() + "\n";
@@ -193,14 +200,24 @@ public class Producto implements Serializable {
         txt = txt + "}\n";
         return txt;
     }
-
+    /**
+     * Método que reserva un producto a un comprador hasta que el vendedor confirme
+     * @param comprador
+     */
     public void reservar(Cliente comprador) {
         getVendedor().notificar(comprador, this);
     }
-public int getDistancia(String ubicacion) {
-		for (int i=0; i<ubicacion.length(); i++) {
-			if (this.ubicacion.charAt(i)!=ubicacion.charAt(i)) return i;
-		}
-		return 10; 
-	}
+    /**
+     * Método que le da al producto la ubicación del vendedor
+     * @param ubicacion
+     * @return 
+     */
+    public int getDistancia(String ubicacion) {
+        for (int i = 0; i < ubicacion.length(); i++) {
+            if (this.ubicacion.charAt(i) != ubicacion.charAt(i)) {
+                return i;
+            }
+        }
+        return 10;
+    }
 }

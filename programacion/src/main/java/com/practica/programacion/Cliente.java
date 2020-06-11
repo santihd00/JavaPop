@@ -5,7 +5,6 @@ package com.practica.programacion;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 // Start of user code (user defined imports)
 
@@ -36,9 +35,9 @@ public class Cliente extends Usuario implements Serializable {
     /**
      * Description of the property productos.
      */
-    protected ArrayList<Notificacion> notificaciones = new ArrayList<>();
-    protected ArrayList<Venta> ventas= new ArrayList<>();
-    protected ArrayList<Producto> misProductos = new ArrayList<>();
+    protected ArrayList<Notificacion> notificaciones = new ArrayList<>();//ArrayList de todas las notificaciones de venta de un cliente
+    protected ArrayList<Venta> ventas = new ArrayList<>();//ArrayList de todas las ventas de un cliente
+    protected ArrayList<Producto> misProductos = new ArrayList<>();//ArrayList de todos los productos de un cliente
     /**
      * Description of the property DNI.
      */
@@ -81,13 +80,14 @@ public class Cliente extends Usuario implements Serializable {
      *
      * @return tarjetaDeCredito
      */
-        public ArrayList<Notificacion> getNotificaciones() {
+    public ArrayList<Notificacion> getNotificaciones() {
         return notificaciones;
     }
+
     public void setNotificaciones(ArrayList<Notificacion> notificaciones) {
         this.notificaciones = notificaciones;
     }
-    
+
     public ArrayList<Venta> getVentas() {
         return ventas;
     }
@@ -95,6 +95,7 @@ public class Cliente extends Usuario implements Serializable {
     public void setVentas(ArrayList<Venta> ventas) {
         this.ventas = ventas;
     }
+
     public String getTarjetaDeCredito() {
         return this.tarjetaDeCredito;
     }
@@ -170,6 +171,10 @@ public class Cliente extends Usuario implements Serializable {
         this.misProductos = misProductos;
     }
 
+    /**
+     * Método que servía para que en el código se viera lo que estaba haciendo
+     */
+    @Override
     public String toString() {
         String txt = "Cliente:{\n";
         txt = txt + "Nombre:" + getNombre() + "\n";
@@ -183,9 +188,14 @@ public class Cliente extends Usuario implements Serializable {
         return txt;
     }
 
+    /**
+     * Método para que un cliente añada productos a su lista
+     *
+     * @param producto
+     */
     public void añadirProducto(Producto producto) {
-        misProductos.add(producto);
-        producto.setVendedor(this);
+        misProductos.add(producto);//añade un producto vacío a la lista de misProductos
+        producto.setVendedor(this);//Al producto vacío le añade el dueño de este 
         ArrayList<Producto> productos = Tienda.tienda.getProductos().get(producto.getCategoria());
         if (productos == null) {
             productos = new ArrayList<>();
@@ -194,13 +204,27 @@ public class Cliente extends Usuario implements Serializable {
         productos.add(producto);
     }
 
+    /**
+     * Método que sirve para notificar al vendedor que le quieren comprar un
+     * producto
+     *
+     * @param comprador
+     * @param objComprado
+     */
     public void notificar(Cliente comprador, Producto objComprado) {
         Notificacion solicitud = new Notificacion(comprador, objComprado);
         notificaciones.add(solicitud);
     }
-    public Venta generarVenta(Notificacion solicitud){
-        Producto vendido=solicitud.getProdComprado();
-        Venta venta= new Venta(vendido,solicitud.getComprador());
+
+    /**
+     * Método que sirve para generar la venta del producto
+     *
+     * @param solicitud
+     * @return
+     */
+    public Venta generarVenta(Notificacion solicitud) {
+        Producto vendido = solicitud.getProdComprado();
+        Venta venta = new Venta(vendido, solicitud.getComprador());
         ventas.add(venta);
         return venta;
     }

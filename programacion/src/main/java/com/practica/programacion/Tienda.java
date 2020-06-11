@@ -22,24 +22,25 @@ public class Tienda implements Serializable {
 
     private static final long serialVersionUID = 60L;
 
-    protected class CriterioProximidad implements Comparator<Producto> {
-
-        String ubicacion;
-
-        public CriterioProximidad(String ubicacion) {
-            this.ubicacion = ubicacion;
-        }
-
-        public int compare(Producto a, Producto b) {
-
-            return a.getDistancia(ubicacion) - b.getDistancia(ubicacion);
-        }
+    /**
+     * The constructor.
+     */
+    public Tienda() {
+        // Start of user code constructor for Tienda)
+        super();
+        // End of user code
+        admin = new Administrador("admin@javapop.com", "admin");
     }
+
+    public Usuario UsuarioLogueado;
+    public static Tienda tienda = new Tienda();
+    public Administrador admin;
+    private Principal ventanaPrincipal;//Ventana por la que hay que pasar para llegar a las demás
     /**
      * Description of the property clientes.
      */
-    protected ArrayList<Cliente> clientes = new ArrayList<>();
 
+    protected ArrayList<Cliente> clientes = new ArrayList<>();
     /**
      * Description of the property productos.
      */
@@ -52,25 +53,13 @@ public class Tienda implements Serializable {
     public void setUsuarioLogueado(Usuario UsuarioLogueado) {
         this.UsuarioLogueado = UsuarioLogueado;
     }
-    public Usuario UsuarioLogueado;
-    public static Tienda tienda = new Tienda();
-    public Administrador admin;
-    private Principal ventanaPrincipal;
- public Principal getVentanaPrincipal() {
+
+    public Principal getVentanaPrincipal() {
         return ventanaPrincipal;
     }
 
     public void setVentanaPrincipal(Principal ventanaPrincipal) {
         this.ventanaPrincipal = ventanaPrincipal;
-    }
-    /**
-     * The constructor.
-     */
-    public Tienda() {
-        // Start of user code constructor for Tienda)
-        super();
-        // End of user code
-        admin = new Administrador("admin@javapop.com", "admin");
     }
 
     // Start of user code (user defined methods for Tienda)
@@ -93,6 +82,9 @@ public class Tienda implements Serializable {
         return this.productos;
     }
 
+    /**
+     * Método que servía para que en el código se viera lo que estaba haciendo
+     */
     public String toString() {
         String txt = "Tienda:{\n";
         txt = txt + "Clientes:\n";
@@ -104,6 +96,31 @@ public class Tienda implements Serializable {
         return txt;
     }
 
+    /**
+     * Este es el método para la búsqueda de productos por cercanía
+     */
+    protected class CriterioProximidad implements Comparator<Producto> {
+
+        String ubicacion;
+
+        public CriterioProximidad(String ubicacion) {
+            this.ubicacion = ubicacion;
+        }
+
+        @Override
+        public int compare(Producto a, Producto b) {
+
+            return a.getDistancia(ubicacion) - b.getDistancia(ubicacion);
+        }
+    }
+
+    /**
+     * Método general para la búsqueda de objetos
+     * @param categoria
+     * @param palabrasClave
+     * @param ubicacion
+     * @return 
+     */
     public ArrayList<Producto> buscarProductos(Producto.TipoProducto categoria, ArrayList<String> palabrasClave, String ubicacion) {
         ArrayList<Producto> resultado = new ArrayList<>();
         ArrayList<Producto> listaOriginal = productos.get(categoria);
@@ -140,12 +157,18 @@ public class Tienda implements Serializable {
         Collections.sort(resultado, new CriterioProximidad(ubicacion));
         return resultado;
     }
-public ArrayList<Producto> getProductosAsList(){
-    ArrayList<Producto> resultado=new ArrayList<>();
+
+    /*public ArrayList<Producto> getProductosAsList() {
+        ArrayList<Producto> resultado = new ArrayList<>();
+
+        while  {
+            return new ArrayList<Producto>(productos.values());
+        
+        }*/
     
-    while{
-   return new ArrayList<Producto> (productos.values());
-}
+
+    
+
     public Usuario verificarUsuario(String correo, String clave) {
         if (correo.equalsIgnoreCase(admin.getCorreo())) {
             //el logado es el administrador
@@ -167,3 +190,4 @@ public ArrayList<Producto> getProductosAsList(){
         return null;
     }
 }
+//TODO: Terminar los comentarios
