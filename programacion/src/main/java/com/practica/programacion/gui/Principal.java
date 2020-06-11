@@ -197,9 +197,9 @@ registro.setVisible(true);
     }//GEN-LAST:event_miPerfilActionPerformed
 
     private void miProductosPropiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProductosPropiosActionPerformed
-        ProductosPropios productosPropios = new ProductosPropios();
-        this.add(productosPropios);
-        productosPropios.setVisible(true);
+        ProductosProp productosProp = new ProductosProp();
+        this.add(productosProp);
+        productosProp.setVisible(true);
     }//GEN-LAST:event_miProductosPropiosActionPerformed
 
     private void miBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBuscarProductoActionPerformed
@@ -222,7 +222,9 @@ registro.setVisible(true);
     }//GEN-LAST:event_miProductosCompradosActionPerformed
 
     private void miGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionUsuariosActionPerformed
-        // TODO add your handling code here:
+Clientes clientes=new Clientes();
+this.add(clientes);
+clientes.setVisible(true);
     }//GEN-LAST:event_miGestionUsuariosActionPerformed
 
     /**

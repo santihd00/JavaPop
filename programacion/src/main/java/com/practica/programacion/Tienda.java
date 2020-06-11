@@ -140,7 +140,12 @@ public class Tienda implements Serializable {
         Collections.sort(resultado, new CriterioProximidad(ubicacion));
         return resultado;
     }
-
+public ArrayList<Producto> getProductosAsList(){
+    ArrayList<Producto> resultado=new ArrayList<>();
+    
+    while{
+   return new ArrayList<Producto> (productos.values());
+}
     public Usuario verificarUsuario(String correo, String clave) {
         if (correo.equalsIgnoreCase(admin.getCorreo())) {
             //el logado es el administrador

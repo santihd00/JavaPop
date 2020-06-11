@@ -28,6 +28,21 @@ public Registrarse(Cliente cliente){
         initComponents();
         setCliente(cliente);
         establecerPanel();
+        bRegistro.setVisible(false);
+        tfCorreo.setEnabled(false);
+        tfClave.setEnabled(false);
+        tfNombre.setEnabled(false);
+        tfDNI.setEnabled(false);
+        tfTarjetaCredito.setEnabled(false);
+        tfUbicacion.setEnabled(false);
+        tfDescripcion.setEnabled(false);
+        tfHorarioApertura.setEnabled(false);
+        tfTelefono.setEnabled(false);
+        tfWeb.setEnabled(false);
+        rbCliente.setEnabled(false);
+        rbClienteProfesional.setEnabled(false);
+        
+        // TODO: Deshabilitar todos los campos del formulario
 }
     /**
      * This method is called from within the constructor to initialize the form.

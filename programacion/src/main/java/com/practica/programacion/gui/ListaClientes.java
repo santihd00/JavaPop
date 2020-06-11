@@ -1,5 +1,6 @@
 package com.practica.programacion.gui;
 
+import com.practica.programacion.Cliente;
 import com.practica.programacion.Producto;
 import com.practica.programacion.Producto.EstadoProducto;
 import com.practica.programacion.Producto.TipoProducto;
@@ -11,15 +12,15 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Santiago Hernández
  */
-public class ListaProductosPropios extends ListaElementos {
+public class ListaClientes extends ListaElementos {
 
     
     
 //Definir un array de strings en linea
-    public ListaProductosPropios(ArrayList<Producto> productos) {
-        super(new String[]{"Título", "Descripción", "Categoría", "Estado", "Precio", "Fecha publicación"},(ArrayList)productos);        
+    public ListaClientes(ArrayList<Cliente> clientes) {
+        super(new String[]{"Nombre", "DNI", "Tarjeta de crédito", "Ubicación"},(ArrayList)clientes);        
     }
-
+    //TODO: Cambiar columnas de clientes 
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
@@ -32,54 +33,43 @@ public class ListaProductosPropios extends ListaElementos {
                 clase = String.class;
                 break;
             case 2:
-                clase = TipoProducto.class;
+                clase = String.class;
                 break;
             case 3:
-                clase = EstadoProducto.class;
+                clase = String.class;
                 break;
-            case 4:
-                clase = Double.class;
-                break;
-            case 5:
-                clase = Date.class;
-                break;
+          
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
         }
         return clase;
     }
-
+//TODO: devolver clases
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         // Buscamos el Producto correspondiente a la línea solicitada
         Object o = null;
-        Producto p = (Producto)elementos.get(rowIndex);
+        Cliente p = (Cliente)elementos.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                o = p.getTitulo();
+                o = p.getNombre();
                 break;
             case 1:
-                o = p.getDescripcion();
+                o = p.getDNI();
                 break;
             case 2:
-                o = p.getCategoria();
+                o = p.getTarjetaDeCredito();
                 break;
             case 3:
-                o = p.getEstado();
-                break;
-            case 4:
-                o = p.getPrecio();
-                break;
-            case 5:
-                o = p.getFechaPublicacion();
+                o = p.getUbicacion();
                 break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
         }
         return o;
     }
-
+//TODO: devolver clases
    
 
 
