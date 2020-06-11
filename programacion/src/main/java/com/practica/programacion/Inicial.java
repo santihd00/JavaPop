@@ -16,6 +16,7 @@ import java.util.Iterator;
 public class Inicial {
 
     /**
+     * Inicializamos la tienda
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -27,8 +28,8 @@ public class Inicial {
                 System.exit(0);
             }
         }
-        try {
-            FileInputStream fi = new FileInputStream(new File("miTienda.dat"));
+        try {//Archivo donde se guarda la tienda para la próxima vez
+            FileInputStream fi = new FileInputStream(new File("Javapop.dat"));
             ObjectInputStream oi = new ObjectInputStream(fi);
 
             // Read objects
@@ -41,6 +42,7 @@ public class Inicial {
         Tienda t = Tienda.tienda;
         Principal principal = new Principal();
         principal.setVisible(true);
+        //Este código era la parte que emulaba la interfaz de usuario
         /*System.out.println(Tienda.tienda.toString());
         ArrayList<String> palabrasClave = new ArrayList<>();
         palabrasClave.add("Consola");
@@ -79,7 +81,9 @@ public class Inicial {
         Venta venta_2 = solicitud2.getProdComprado().getVendedor().generarVenta(solicitud2);
         System.out.println(venta_2.generarFichero());*/
     }
-
+    /**
+     * Método auxiliar para inicializar la tienda con cinco usuarios y 10 productos
+     */
     private static void inicializarTienda() {
         Producto producto_1 = new Producto("Iphone", "Teléfono de gama alta caro y malo", Producto.TipoProducto.MOVILES, Producto.EstadoProducto.REGULAR, 500.0, "movil_iphone_1.jpg", "28538");
         Producto producto_2 = new Producto("Televisión ", "Televisión alta definición 44 pulgadas", Producto.TipoProducto.TV_AUDIO_FOTO, Producto.EstadoProducto.COMO_NUEVO, 450.0, "television_1.jpg", "28123");
@@ -88,7 +92,7 @@ public class Inicial {
         Producto producto_5 = new Producto("Pendientes ", "Dorados", Producto.TipoProducto.MODA_ACCESORIOS, Producto.EstadoProducto.ACEPTABLE, 3.0, "moda_pendientes_1.jpg", "28404");
         Producto producto_6 = new Producto("Ps4 ", "Consola de videojuegos de sobremesa", Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, Producto.EstadoProducto.NUEVO, 400.0, "consola_playstation_1.jpg", "28404");
         Producto producto_7 = new Producto("Samsung", "Teléfono de gama alta", Producto.TipoProducto.MOVILES, Producto.EstadoProducto.COMO_NUEVO, 750.0, "movil_samsung_1.jpg", "28023");
-        Producto producto_8 = new Producto("Nintendo Switch", "Consola portátil", Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, Producto.EstadoProducto.REGULAR, 200.0, "consola_nintendo_1", "28123");
+        Producto producto_8 = new Producto("Nintendo Switch", "Consola portátil", Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, Producto.EstadoProducto.REGULAR, 200.0, "consola_nintendo_1.jpg", "28123");
         Producto producto_9 = new Producto("Auriculares ", "Para consolas", Producto.TipoProducto.INFORMATICA_ELECTRONICA, Producto.EstadoProducto.ACEPTABLE, 13.0, "electronica_auriculares_1.jpg", "28538");
         Producto producto_10 = new Producto("Pantalones ", "Chándal gris", Producto.TipoProducto.MODA_ACCESORIOS, Producto.EstadoProducto.NUEVO, 20.0, "moda_chandal_pantalon_1.jpg", "28023");
         Cliente cliente_1 = new Cliente("juanvalero@gmail.com", "1234", "Juan Valero", "02713729L", "2738 2474 3484 4985", "28538");

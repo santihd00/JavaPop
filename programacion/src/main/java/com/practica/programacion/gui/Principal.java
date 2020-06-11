@@ -167,6 +167,11 @@ public class Principal extends javax.swing.JFrame {
         mAdministracion.add(miGestionUsuarios);
 
         miGestionProductos.setText("Gestión de productos");
+        miGestionProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miGestionProductosActionPerformed(evt);
+            }
+        });
         mAdministracion.add(miGestionProductos);
 
         jMenuBar1.add(mAdministracion);
@@ -223,10 +228,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_miProductosCompradosActionPerformed
 
     private void miGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionUsuariosActionPerformed
-        Clientes clientes = new Clientes();
+        GestionarClientes clientes = new GestionarClientes();
         this.add(clientes);
         clientes.setVisible(true);
     }//GEN-LAST:event_miGestionUsuariosActionPerformed
+
+    private void miGestionProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionProductosActionPerformed
+        GestionarProductos gestionarProductos = new GestionarProductos();
+        this.add(gestionarProductos);
+        gestionarProductos.setVisible(true);
+    }//GEN-LAST:event_miGestionProductosActionPerformed
 
     /**
      * @param args the command line arguments

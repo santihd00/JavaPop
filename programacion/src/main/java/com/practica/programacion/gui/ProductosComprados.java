@@ -20,11 +20,11 @@ public class ProductosComprados extends javax.swing.JInternalFrame {
     public ProductosComprados() {
         initComponents();
     }
-    ListaProductosPropios modelo2;
+    ListaProductos modelo2;
 
     public void init() {
         Cliente cliente = (Cliente) Tienda.tienda.getUsuarioLogueado();
-        modelo2 = new ListaProductosPropios(cliente.getMisProductos());
+        modelo2 = new ListaProductos(cliente.getMisProductos());
 
     }
 

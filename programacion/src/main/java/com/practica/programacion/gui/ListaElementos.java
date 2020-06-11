@@ -21,7 +21,9 @@ public abstract class ListaElementos extends AbstractTableModel {//Esta es la cl
         this.elementos = elementos;
         this.columnas = columnas;
     }
-
+public Object getElemento(int row){
+    return  elementos.get(row);
+}
     @Override
     public int getRowCount() {
         if (elementos == null) {

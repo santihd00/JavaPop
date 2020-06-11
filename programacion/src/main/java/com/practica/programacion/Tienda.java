@@ -158,13 +158,19 @@ public class Tienda implements Serializable {
         return resultado;
     }
 
-    /*public ArrayList<Producto> getProductosAsList() {
+    public  ArrayList<Producto> getProductosAsList() {
         ArrayList<Producto> resultado = new ArrayList<>();
+ Iterator<ArrayList<Producto>> iListPro = getProductos().values().iterator();
+        while (iListPro.hasNext()) {
+            ArrayList<Producto> lProductos=iListPro.next();
+            
+       
+        resultado.addAll(lProductos);
+        }
+        return resultado;
+    }
 
-        while  {
-            return new ArrayList<Producto>(productos.values());
-        
-        }*/
+    
     
 
     

@@ -16,7 +16,7 @@ import java.util.Date;
 public class Producto implements Serializable {
 
     private static final long serialVersionUID = 40L;
-//variable de las diferentes categorías que puede tener un producto
+//enumerable de las diferentes categorías que puede tener un producto
 
     public enum TipoProducto {
         MODA_ACCESORIOS("Moda y accesorios"),
@@ -37,7 +37,7 @@ public class Producto implements Serializable {
         }
 
     }
-//varibale de los diferentes estados en los que puede estar un producto
+//enumerado de los diferentes estados en los que puede estar un producto
 
     public enum EstadoProducto {
         NUEVO("Nuevo"),
@@ -208,7 +208,7 @@ public class Producto implements Serializable {
         getVendedor().notificar(comprador, this);
     }
     /**
-     * Método que le da al producto la ubicación del vendedor
+     * Método que compara ubicaciones y da un valor numérico de cercanía siguiendo la siguientes reglas: compara ubicaciones desde el número más significativo hasta que el número es diferente en ambas ubicaciones por lo que a mayor valor numérico más cercanía 
      * @param ubicacion
      * @return 
      */

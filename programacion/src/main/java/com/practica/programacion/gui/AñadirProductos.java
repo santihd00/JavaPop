@@ -28,6 +28,8 @@ public class AñadirProductos extends javax.swing.JDialog {
 
     /**
      * Creates new form AñadirProductos
+     * @param parent
+     * @param modal
      */
     public AñadirProductos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

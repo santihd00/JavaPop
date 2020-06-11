@@ -5,18 +5,16 @@ import com.practica.programacion.Producto.EstadoProducto;
 import com.practica.programacion.Producto.TipoProducto;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author Santiago Hernández
  */
-public class ListaProductosPropios extends ListaElementos {
+public class ListaProductos extends ListaElementos {
 
 //Definir un array de strings en linea
-    public ListaProductosPropios(ArrayList<Producto> productos) {
-        super(new String[]{"Título", "Descripción", "Categoría", "Estado", "Precio", "Fecha publicación"}, (ArrayList) productos);
+    public ListaProductos(ArrayList<Producto> productos) {
+        super(new String[]{"Título", "Descripción", "Categoría", "Estado", "Precio", "Fecha publicación","Ubicación"}, (ArrayList) productos);
     }
 
     @Override
@@ -40,6 +38,9 @@ public class ListaProductosPropios extends ListaElementos {
                 break;
             case 5:
                 clase = Date.class;
+                break;
+            case 6:
+                clase = String.class;
                 break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
@@ -70,6 +71,9 @@ public class ListaProductosPropios extends ListaElementos {
                 break;
             case 5:
                 o = p.getFechaPublicacion();
+                break;
+            case 6:
+                o =p.getUbicacion();
                 break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);

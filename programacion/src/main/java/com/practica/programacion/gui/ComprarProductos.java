@@ -5,6 +5,14 @@
  */
 package com.practica.programacion.gui;
 
+import com.practica.programacion.Cliente;
+import com.practica.programacion.Producto;
+import com.practica.programacion.Producto.TipoProducto;
+import com.practica.programacion.Tienda;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Santiago Hernández
@@ -15,9 +23,11 @@ public class ComprarProductos extends javax.swing.JInternalFrame {
      * Creates new form ProductosComprar
      */
     public ComprarProductos() {
+       modelo=new ListaProductos(new ArrayList<Producto>());
         initComponents();
+        
     }
-
+    ListaProductos modelo;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,23 +37,120 @@ public class ComprarProductos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setTitle("Lista de productos para comprar");
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tProductosEncontrados = new javax.swing.JTable();
+        lCategoria = new javax.swing.JLabel();
+        cbCategoria = new javax.swing.JComboBox<>();
+        lPalabrasClave = new javax.swing.JLabel();
+        tfPalabrasClave = new javax.swing.JTextField();
+        bSolicitarCompra = new javax.swing.JButton();
+        bBuscar = new javax.swing.JButton();
+
+        setTitle("Buscar productos");
+
+        tProductosEncontrados.setModel(modelo  );
+        jScrollPane1.setViewportView(tProductosEncontrados);
+
+        lCategoria.setText("Categoría:");
+
+        cbCategoria.setModel(new DefaultComboBoxModel<>(TipoProducto.values())
+        );
+        cbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCategoriaActionPerformed(evt);
+            }
+        });
+
+        lPalabrasClave.setText("Palabras clave:");
+        lPalabrasClave.setToolTipText("separar las palabras con comas");
+
+        bSolicitarCompra.setText("Solicitar compra");
+        bSolicitarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSolicitarCompraActionPerformed(evt);
+            }
+        });
+
+        bBuscar.setText("Buscar");
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(110, 110, 110)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(132, 132, 132)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lPalabrasClave)
+                                .addComponent(lCategoria))
+                            .addGap(33, 33, 33)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfPalabrasClave, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(bSolicitarCompra)
+                    .addComponent(bBuscar))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lCategoria)
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lPalabrasClave)
+                    .addComponent(tfPalabrasClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(bBuscar)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bSolicitarCompra)
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCategoriaActionPerformed
+
+    private void bSolicitarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSolicitarCompraActionPerformed
+        int row = tProductosEncontrados.getSelectedRow();
+        if (row >= 0) {
+           Producto productoSolicitado =(Producto)modelo.getElemento(row);
+           productoSolicitado.getVendedor().notificar((Cliente) Tienda.tienda.getUsuarioLogueado(), productoSolicitado);
+        }
+    }//GEN-LAST:event_bSolicitarCompraActionPerformed
+
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
+ String[] palabrasClave=tfPalabrasClave.getText().split(",");
+        ArrayList<Producto> productosEncontrados=Tienda.tienda.buscarProductos((TipoProducto)cbCategoria.getSelectedItem(), new ArrayList<>(Arrays.asList(palabrasClave)), ((Cliente)Tienda.tienda.getUsuarioLogueado()).getUbicacion());
+        modelo=new ListaProductos (productosEncontrados);
+    }//GEN-LAST:event_bBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bBuscar;
+    private javax.swing.JButton bSolicitarCompra;
+    private javax.swing.JComboBox<TipoProducto> cbCategoria;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lCategoria;
+    private javax.swing.JLabel lPalabrasClave;
+    private javax.swing.JTable tProductosEncontrados;
+    private javax.swing.JTextField tfPalabrasClave;
     // End of variables declaration//GEN-END:variables
 }

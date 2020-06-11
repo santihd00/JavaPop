@@ -11,14 +11,14 @@ import java.awt.event.ActionEvent;
  *
  * @author Santiago Hernández
  */
-public abstract class Listas extends javax.swing.JInternalFrame {//Esta es la clase de swing básica para productos propios, productos por confirmar y gestión tanto de usuarios como productos
+public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//Esta es la clase de swing básica para productos propios, productos por confirmar y gestión tanto de usuarios como productos
 
     /**
      * Creates new form ProductosPropios
      *
      * @param modelo
      */
-    public Listas(ListaElementos modelo) {
+    public ListaElementosSwing(ListaElementos modelo) {
         this.modelo = modelo;
         initComponents();
         init();
