@@ -5,7 +5,6 @@
  */
 package com.practica.programacion.gui;
 
-import com.practica.programacion.Cliente;
 import com.practica.programacion.Tienda;
 import java.awt.event.ActionEvent;
 

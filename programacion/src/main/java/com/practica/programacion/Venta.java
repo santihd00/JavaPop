@@ -31,6 +31,37 @@ public class Venta implements Serializable {
         producto.setVendido(true);
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public Cliente getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Cliente comprador) {
+        this.comprador = comprador;
+    }
+
+    public Cliente getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Cliente vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public Date getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public void setFechaCompra(Date fechaCompra) {
+        this.fechaCompra = fechaCompra;
+    }
     @Override
     public String toString() {
         String txt = "Venta:{n";

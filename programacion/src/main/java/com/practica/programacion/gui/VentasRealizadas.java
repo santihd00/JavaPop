@@ -5,6 +5,7 @@
  */
 package com.practica.programacion.gui;
 
+import com.practica.programacion.Tienda;
 import java.awt.event.ActionEvent;
 
 /**
@@ -13,6 +14,7 @@ import java.awt.event.ActionEvent;
  */
 public class VentasRealizadas extends ListaElementosSwing{
 public VentasRealizadas(){
+    super(new ListaVentas(Tienda.tienda.getVentas()) {});
     init();
     button2.setVisible(false);
     setTitle("Ventas realizadas");

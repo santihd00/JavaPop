@@ -157,7 +157,15 @@ public class Tienda implements Serializable {
         Collections.sort(resultado, new CriterioProximidad(ubicacion));
         return resultado;
     }
-
+    public ArrayList<Venta> getVentas(){
+        ArrayList<Venta> resultado = new ArrayList<>();
+        Iterator<Cliente> iListClientes =getClientes().iterator();
+        while(iListClientes.hasNext()){
+            Cliente cliente=iListClientes.next();          
+            resultado.addAll(cliente.getVentas());
+        }
+        return resultado; 
+    }
     // TODO: comentar
     public ArrayList<Producto> getProductosAsList() {
         ArrayList<Producto> resultado = new ArrayList<>();
