@@ -158,7 +158,8 @@ public class Tienda implements Serializable {
         return resultado;
     }
 
-    public  ArrayList<Producto> getProductosAsList() {
+    // TODO: comentar
+    public ArrayList<Producto> getProductosAsList() {
         ArrayList<Producto> resultado = new ArrayList<>();
  Iterator<ArrayList<Producto>> iListPro = getProductos().values().iterator();
         while (iListPro.hasNext()) {
@@ -170,10 +171,21 @@ public class Tienda implements Serializable {
         return resultado;
     }
 
-    
-    
+    //TODO: Comentar. Antes estaba dentro del método añadirProducto(Producto producto) de Cliente
+    public void añadirProducto(Producto producto) {
+        ArrayList<Producto> productos = getProductos().get(producto.getCategoria());
+        if (productos == null) {
+            productos = new ArrayList<>();
+            Tienda.tienda.getProductos().put(producto.getCategoria(), productos);
+        }
+        productos.add(producto);
+    }
 
-    
+    // TODO: Comentar
+	public void eliminarProducto(Producto producto) {
+        ArrayList<Producto> productos = getProductos().get(producto.getCategoria());
+        productos.remove(producto);
+	}
 
     public Usuario verificarUsuario(String correo, String clave) {
         if (correo.equalsIgnoreCase(admin.getCorreo())) {
@@ -195,5 +207,6 @@ public class Tienda implements Serializable {
         }
         return null;
     }
+
 }
 //TODO: Terminar los comentarios
