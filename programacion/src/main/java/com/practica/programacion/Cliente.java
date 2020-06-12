@@ -228,4 +228,9 @@ public class Cliente extends Usuario implements Serializable {
         ventas.add(venta);
         return venta;
     }
+
+    public void eliminarProducto(Producto prodCom) {
+       getMisProductos().remove(prodCom);
+    }
+
 }
