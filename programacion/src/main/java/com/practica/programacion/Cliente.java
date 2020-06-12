@@ -196,13 +196,15 @@ public class Cliente extends Usuario implements Serializable {
     public void añadirProducto(Producto producto) {
         misProductos.add(producto);//añade un producto vacío a la lista de misProductos
         producto.setVendedor(this);//Al producto vacío le añade el dueño de este 
-        ArrayList<Producto> productos = Tienda.tienda.getProductos().get(producto.getCategoria());
-        if (productos == null) {
-            productos = new ArrayList<>();
-            Tienda.tienda.getProductos().put(producto.getCategoria(), productos);
-        }
-        productos.add(producto);
+        Tienda.tienda.añadirProducto(producto);
     }
+    
+    // TODO: COmentar 
+    public void eliminarProducto(Producto producto) {
+       misProductos.remove(producto);
+       Tienda.tienda.eliminarProducto(producto);
+    }
+
 
     /**
      * Método que sirve para notificar al vendedor que le quieren comprar un
@@ -229,8 +231,5 @@ public class Cliente extends Usuario implements Serializable {
         return venta;
     }
 
-    public void eliminarProducto(Producto prodCom) {
-       getMisProductos().remove(prodCom);
-    }
 
 }
