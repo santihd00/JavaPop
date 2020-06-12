@@ -168,6 +168,8 @@ public class AñadirProductos extends javax.swing.JDialog {
         producto.setCategoria((TipoProducto) cbCategoria.getSelectedItem());
         producto.setEstado((EstadoProducto) cbEstado.getSelectedItem());
         producto.setPrecio(Double.parseDouble(tfPrecio.getText()));
+        String ubiUsuario= ((Cliente)Tienda.tienda.getUsuarioLogueado()).getUbicacion();
+        producto.setUbicacion(ubiUsuario);
         try {
             producto.setFechaPublicacion(sdfDD_MM_YYYY.parse(tfFechaPublicacion.getText()));
         } catch (ParseException ex) {

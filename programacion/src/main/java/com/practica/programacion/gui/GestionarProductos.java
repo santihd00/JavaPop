@@ -25,6 +25,7 @@ public class GestionarProductos extends ListaElementosSwing {
         button2.setVisible(false);
     }
 
+    @Override
     public void init() {
         button1.setText("Eliminar");
     }

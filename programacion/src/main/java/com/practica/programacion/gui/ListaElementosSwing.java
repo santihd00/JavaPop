@@ -22,13 +22,14 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
         this.modelo = modelo;
         initComponents();
         init();
-
+        
     }
 //variable de tipo ListaElementos 
     ListaElementos modelo;
-
+    
     public void init() {
-
+        ftfFechaDesde.setVisible(false);
+        lFechaInicial.setVisible(false);
     }
 
     /**
@@ -44,6 +45,8 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
         tElementos = new javax.swing.JTable();
         button2 = new javax.swing.JButton();
         button1 = new javax.swing.JButton();
+        ftfFechaDesde = new javax.swing.JFormattedTextField();
+        lFechaInicial = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -73,20 +76,35 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
             }
         });
 
+        ftfFechaDesde.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        ftfFechaDesde.setToolTipText("");
+        ftfFechaDesde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ftfFechaDesdeActionPerformed(evt);
+            }
+        });
+
+        lFechaInicial.setText("Fecha inicial:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lFechaInicial)
+                        .addGap(18, 18, 18)
+                        .addComponent(ftfFechaDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,8 +114,10 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button2)
-                    .addComponent(button1))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(button1)
+                    .addComponent(ftfFechaDesde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lFechaInicial))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,16 +135,22 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
         button2(evt);
     }//GEN-LAST:event_button2ActionPerformed
 
+    private void ftfFechaDesdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ftfFechaDesdeActionPerformed
+
+    }//GEN-LAST:event_ftfFechaDesdeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton button1;
     protected javax.swing.JButton button2;
+    private javax.swing.JFormattedTextField ftfFechaDesde;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lFechaInicial;
     protected javax.swing.JTable tElementos;
     // End of variables declaration//GEN-END:variables
 
     abstract protected void button2(ActionEvent evt);
-
+    
     abstract protected void button1(ActionEvent evt);
-
+    
 }

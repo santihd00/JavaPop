@@ -88,6 +88,7 @@ public class Principal extends javax.swing.JFrame {
         mAdministracion = new javax.swing.JMenu();
         miGestionUsuarios = new javax.swing.JMenuItem();
         miGestionProductos = new javax.swing.JMenuItem();
+        miVentasRealizadas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -174,6 +175,14 @@ public class Principal extends javax.swing.JFrame {
         });
         mAdministracion.add(miGestionProductos);
 
+        miVentasRealizadas.setText("Ventas realizadas");
+        miVentasRealizadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miVentasRealizadasActionPerformed(evt);
+            }
+        });
+        mAdministracion.add(miVentasRealizadas);
+
         jMenuBar1.add(mAdministracion);
 
         setJMenuBar(jMenuBar1);
@@ -239,6 +248,12 @@ public class Principal extends javax.swing.JFrame {
         gestionarProductos.setVisible(true);
     }//GEN-LAST:event_miGestionProductosActionPerformed
 
+    private void miVentasRealizadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVentasRealizadasActionPerformed
+        VentasRealizadas ventasRealizadas = new VentasRealizadas();
+        this.add(ventasRealizadas);
+        ventasRealizadas.setVisible(true);
+    }//GEN-LAST:event_miVentasRealizadasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,5 +305,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miPorConfirmar;
     private javax.swing.JMenuItem miProductosComprados;
     private javax.swing.JMenuItem miProductosPropios;
+    private javax.swing.JMenuItem miVentasRealizadas;
     // End of variables declaration//GEN-END:variables
 }
