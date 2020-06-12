@@ -1,8 +1,5 @@
 package com.practica.programacion.gui;
 
-import com.practica.programacion.Producto;
-import com.practica.programacion.Producto.EstadoProducto;
-import com.practica.programacion.Producto.TipoProducto;
 import com.practica.programacion.Venta;
 import java.util.ArrayList;
 import java.util.Date;

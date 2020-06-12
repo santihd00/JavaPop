@@ -46,6 +46,8 @@ public class ComprarProductos extends javax.swing.JInternalFrame {
         bSolicitarCompra = new javax.swing.JButton();
         bBuscar = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
         setTitle("Buscar productos");
 
         tProductosEncontrados.setModel(modelo  );

@@ -20,7 +20,8 @@ public class ConfirmarProductos extends ListaElementosSwing {
      * Creates new form ProductosPropios
      */
     public ConfirmarProductos() {
-        super(new ListaProductos(((Cliente) Tienda.tienda.getUsuarioLogueado()).getMisProductos()));
+        super(new ListaNotificaciones(((Cliente)Tienda.tienda.getUsuarioLogueado()).getNotificaciones()));
+        
         init();
         setTitle("Lista de productos por confirmar");
     }
