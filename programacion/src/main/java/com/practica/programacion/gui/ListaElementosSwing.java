@@ -22,15 +22,13 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
         this.modelo = modelo;
         initComponents();
         init();
-        
+        ftfFechaDesde.setVisible(false);
+        lFechaInicial.setVisible(false);
     }
 //variable de tipo ListaElementos 
     ListaElementos modelo;
     
-    public void init() {
-        ftfFechaDesde.setVisible(false);
-        lFechaInicial.setVisible(false);
-    }
+    abstract public void init();
 
     /**
      * This method is called from within the constructor to initialize the form.
