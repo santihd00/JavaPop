@@ -187,7 +187,7 @@ public class Tienda implements Serializable {
     }
 
     /**
-     * Colocar todos los productos de la tienda en una sola lista 
+     * devuelve todos los productos de la tienda en una sola lista 
      *
      * @return
      */
@@ -203,7 +203,7 @@ public class Tienda implements Serializable {
         return resultado;
     }
     /**
-     * metodo 
+     * añade un producto al hashmap de productos de la tienda
      * @param producto
      */
     //TODO: Comentar. Antes estaba dentro del método añadirProducto(Producto producto) de Cliente
@@ -217,7 +217,7 @@ public class Tienda implements Serializable {
     }
 
         /**
-     * Método para eliminar un producto de la lista de productos del cliente
+     * elimina un producto al hashmap de productos de la tienda
      * @param producto
      */
     public void eliminarProducto(Producto producto) {

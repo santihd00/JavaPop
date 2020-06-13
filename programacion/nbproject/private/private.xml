@@ -3,26 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/InicioSesion.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/ProductosComprados.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Tienda.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/Principal.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/ProductosPropios.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Venta.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/Perfil.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/ListaProductosPropios.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/AñadirProductos.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/ComprarProductos.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Notificacion.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/ConfirmarProductos.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Producto.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/ClienteProfesional.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/Registrarse.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Usuario.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Administrador.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Cliente.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/gui/PaginaCompraProducto.java</file>
-            <file>file:/C:/Users/Santi/workspace/programacion.zip_expanded/programacion/src/main/java/com/practica/programacion/Inicial.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/Notificacion.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/Inicial.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/GestionarProductos.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/GestionarClientes.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/Principal.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ListaNotificaciones.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ListaProductos.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ComprarProductos.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ListaClientes.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/VentasRealizadas.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/Cliente.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ListaVentas.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ListaElementosSwing.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/AñadirProductos.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ProductosProp.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ConfirmarProductos.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/Producto.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/Venta.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ProductosComprados.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/gui/ListaElementos.java</file>
+            <file>file:/C:/Users/Santi/workspace/JavaPop/programacion/src/main/java/com/practica/programacion/Tienda.java</file>
         </group>
     </open-files>
 </project-private>
