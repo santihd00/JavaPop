@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -51,18 +53,10 @@ public class Inicial {
         Cliente clienteConectado = Tienda.tienda.getClientes().get(0);
         ArrayList<Producto> busqueda_1 = Tienda.tienda.buscarProductos(Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, palabrasClave,clienteConectado.getUbicacion());
         Producto p1 = busqueda_1.get(0);
-        p1.reservar(clienteConectado);
+        p1
         Cliente vendedor = p1.getVendedor();
-        ArrayList<Notificacion> notif=vendedor.getNotificaciones();
-        System.out.println("Notificaciones de solicitudes de compra recibidas \n"+notif);
-        Iterator<Notificacion> iNotif =notif.iterator();
-        while (iNotif.hasNext()){
-            Notificacion n=iNotif.next();
-            System.out.println(n);
-        }
-        Notificacion solicitud=notif.get(0);
-        Venta venta_1 = solicitud.getProdComprado().getVendedor().generarVenta(solicitud);
-        System.out.println(venta_1.generarFichero());
+       
+       
         System.out.println("Realizando búsqueda con los mismos datos por segunda vez...");
         Cliente clienteConectado2 = Tienda.tienda.getClientes().get(1);
      ArrayList<Producto> busqueda_2 = Tienda.tienda.buscarProductos(Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, palabrasClave,clienteConectado2.getUbicacion());        
@@ -115,6 +109,17 @@ public class Inicial {
         Tienda.tienda.getClientes().add(cliente_3);
         Tienda.tienda.getClientes().add(cliprof_1);
         Tienda.tienda.getClientes().add(cliprof_2);
+        producto_1.reservar(cliente_2);
+         ArrayList<Notificacion> notif=cliente_1.getNotificaciones();
+        System.out.println("Notificaciones de solicitudes de compra recibidas \n"+notif);
+        Iterator<Notificacion> iNotif =notif.iterator();
+        while (iNotif.hasNext()){
+            Notificacion n=iNotif.next();
+            System.out.println(n);
+        }
+         Notificacion solicitud=notif.get(0);
+        Venta venta_1 = solicitud.getProdComprado().getVendedor().generarVenta(solicitud);
+        
         try {
             File fichero = new File("miTienda.dat");
             System.out.println(fichero.getAbsolutePath());

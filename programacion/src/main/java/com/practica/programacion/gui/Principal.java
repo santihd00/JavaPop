@@ -79,7 +79,6 @@ public class Principal extends javax.swing.JFrame {
         miCerrarSesion = new javax.swing.JMenuItem();
         mCompra = new javax.swing.JMenu();
         miBuscarProducto = new javax.swing.JMenuItem();
-        miProductosComprados = new javax.swing.JMenuItem();
         mVenta = new javax.swing.JMenu();
         miPorConfirmar = new javax.swing.JMenuItem();
         miProductosPropios = new javax.swing.JMenuItem();
@@ -114,14 +113,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         mCompra.add(miBuscarProducto);
-
-        miProductosComprados.setText("Productos comprados");
-        miProductosComprados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miProductosCompradosActionPerformed(evt);
-            }
-        });
-        mCompra.add(miProductosComprados);
 
         jMenuBar1.add(mCompra);
 
@@ -230,12 +221,6 @@ public class Principal extends javax.swing.JFrame {
         confirmarProductos.setVisible(true);
     }//GEN-LAST:event_miPorConfirmarActionPerformed
 
-    private void miProductosCompradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProductosCompradosActionPerformed
-        ProductosComprados productosComprados = new ProductosComprados();
-        this.add(productosComprados);
-        productosComprados.setVisible(true);
-    }//GEN-LAST:event_miProductosCompradosActionPerformed
-
     private void miGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionUsuariosActionPerformed
         GestionarClientes clientes = new GestionarClientes();
         this.add(clientes);
@@ -303,7 +288,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miGestionUsuarios;
     private javax.swing.JMenuItem miPerfil;
     private javax.swing.JMenuItem miPorConfirmar;
-    private javax.swing.JMenuItem miProductosComprados;
     private javax.swing.JMenuItem miProductosPropios;
     private javax.swing.JMenuItem miVentasRealizadas;
     // End of variables declaration//GEN-END:variables
