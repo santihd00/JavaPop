@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class ListaClientes extends ListaElementos {
 
-//Definir un array de strings en linea
+    //Definir un array de strings en linea
     public ListaClientes(ArrayList<Cliente> clientes) {
         super(new String[]{"Nombre", "DNI", "Tarjeta de crédito", "Ubicación","Es profesional"}, (ArrayList) clientes);
     }

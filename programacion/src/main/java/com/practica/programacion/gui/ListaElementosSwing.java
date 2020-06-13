@@ -21,9 +21,9 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
     public ListaElementosSwing(ListaElementos modelo) {
         this.modelo = modelo;
         initComponents();
-        init();
         ftfFechaDesde.setVisible(false);
         lFechaInicial.setVisible(false);
+        init();
     }
 //variable de tipo ListaElementos 
     ListaElementos modelo;
@@ -141,9 +141,9 @@ public abstract class ListaElementosSwing extends javax.swing.JInternalFrame {//
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton button1;
     protected javax.swing.JButton button2;
-    private javax.swing.JFormattedTextField ftfFechaDesde;
+    protected javax.swing.JFormattedTextField ftfFechaDesde;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lFechaInicial;
+    protected javax.swing.JLabel lFechaInicial;
     protected javax.swing.JTable tElementos;
     // End of variables declaration//GEN-END:variables
 

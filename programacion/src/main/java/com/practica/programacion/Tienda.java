@@ -97,7 +97,7 @@ public class Tienda implements Serializable {
     }
 
     /**
-     * Este es el método para la búsqueda de productos por cercanía
+     * Esta es una clase para comparar productos por proximidad
      */
     protected class CriterioProximidad implements Comparator<Producto> {
 
@@ -114,12 +114,22 @@ public class Tienda implements Serializable {
         }
     }
 
+    protected class CriterioAntiguedadVentas implements Comparator<Venta> {
+
+        @Override
+        public int compare(Venta a, Venta b) {
+
+            return a.getFechaCompra().compareTo(b.getFechaCompra());
+        }
+    }
+
     /**
      * Método general para la búsqueda de objetos
+     *
      * @param categoria
      * @param palabrasClave
      * @param ubicacion
-     * @return 
+     * @return
      */
     public ArrayList<Producto> buscarProductos(Producto.TipoProducto categoria, ArrayList<String> palabrasClave, String ubicacion) {
         ArrayList<Producto> resultado = new ArrayList<>();
@@ -139,7 +149,7 @@ public class Tienda implements Serializable {
             if (palabrasClave == null || palabrasClave.isEmpty()) {
                 return lista;
             }
-            Iterator<Producto> iPro = lista.iterator();
+            Iterator<Producto> iPro = lista.iterator();//iterador que recorre la lista de productos
             while (iPro.hasNext()) {
                 Producto p = iPro.next();
                 String descripcion = p.getDescripcion().toUpperCase();
@@ -157,28 +167,45 @@ public class Tienda implements Serializable {
         Collections.sort(resultado, new CriterioProximidad(ubicacion));
         return resultado;
     }
-    public ArrayList<Venta> getVentas(){
+
+    /**
+     * ArrayList que recoge todas las ventas realizadas ordenándolas por la
+     * fecha que se realizaron
+     *
+     * @return
+     */
+
+    public ArrayList<Venta> getVentas() {
         ArrayList<Venta> resultado = new ArrayList<>();
-        Iterator<Cliente> iListClientes =getClientes().iterator();
-        while(iListClientes.hasNext()){
-            Cliente cliente=iListClientes.next();          
+        Iterator<Cliente> iListClientes = getClientes().iterator();
+        while (iListClientes.hasNext()) {
+            Cliente cliente = iListClientes.next();
             resultado.addAll(cliente.getVentas());
-        }
-        return resultado; 
-    }
-    // TODO: comentar
-    public ArrayList<Producto> getProductosAsList() {
-        ArrayList<Producto> resultado = new ArrayList<>();
- Iterator<ArrayList<Producto>> iListPro = getProductos().values().iterator();
-        while (iListPro.hasNext()) {
-            ArrayList<Producto> lProductos=iListPro.next();
-            
-       
-        resultado.addAll(lProductos);
+            Collections.sort(resultado, new CriterioAntiguedadVentas());
         }
         return resultado;
     }
 
+    /**
+     * Colocar todos los productos de la tienda en una sola lista 
+     *
+     * @return
+     */
+
+    public ArrayList<Producto> getProductosAsList() {
+        ArrayList<Producto> resultado = new ArrayList<>();
+        Iterator<ArrayList<Producto>> iListPro = getProductos().values().iterator();
+        while (iListPro.hasNext()) {
+            ArrayList<Producto> lProductos = iListPro.next();
+
+            resultado.addAll(lProductos);
+        }
+        return resultado;
+    }
+    /**
+     * metodo 
+     * @param producto
+     */
     //TODO: Comentar. Antes estaba dentro del método añadirProducto(Producto producto) de Cliente
     public void añadirProducto(Producto producto) {
         ArrayList<Producto> productos = getProductos().get(producto.getCategoria());
@@ -189,12 +216,20 @@ public class Tienda implements Serializable {
         productos.add(producto);
     }
 
-    // TODO: Comentar
-	public void eliminarProducto(Producto producto) {
+        /**
+     * Método para eliminar un producto de la lista de productos del cliente
+     * @param producto
+     */
+    public void eliminarProducto(Producto producto) {
         ArrayList<Producto> productos = getProductos().get(producto.getCategoria());
         productos.remove(producto);
-	}
-
+    }
+    /**
+     * Método para verificar si el usuario ya existe en la tienda o no
+     * @param correo
+     * @param clave
+     * @return 
+     */
     public Usuario verificarUsuario(String correo, String clave) {
         if (correo.equalsIgnoreCase(admin.getCorreo())) {
             //el logado es el administrador

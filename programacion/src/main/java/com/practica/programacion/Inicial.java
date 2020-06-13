@@ -4,10 +4,10 @@ import com.practica.programacion.gui.Principal;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
+
 
 /**
  *
@@ -123,7 +123,7 @@ public class Inicial {
             os.writeObject(Tienda.tienda);
             os.close();
             f.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println(e.toString());
             System.exit(-1);
         }

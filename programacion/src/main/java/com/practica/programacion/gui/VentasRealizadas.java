@@ -23,6 +23,8 @@ public VentasRealizadas(){
 @Override
  public void init() {
         button1.setText("Buscar");
+        ftfFechaDesde.setVisible(true);
+        lFechaInicial.setVisible(true);
     }
     @Override
     protected void button2(ActionEvent evt) {
@@ -31,7 +33,7 @@ public VentasRealizadas(){
 
     @Override
     protected void button1(ActionEvent evt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  
     }
     
 }
