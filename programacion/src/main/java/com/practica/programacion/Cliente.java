@@ -227,6 +227,7 @@ public class Cliente extends Usuario implements Serializable {
     public Venta generarVenta(Notificacion solicitud) {
         Producto vendido = solicitud.getProdComprado();
         Venta venta = new Venta(vendido, solicitud.getComprador());
+        venta.generarFichero();
         ventas.add(venta);
         return venta;
     }
