@@ -142,6 +142,7 @@ public class ComprarProductos extends javax.swing.JInternalFrame {
  String[] palabrasClave=tfPalabrasClave.getText().split(",");
         ArrayList<Producto> productosEncontrados=Tienda.tienda.buscarProductos((TipoProducto)cbCategoria.getSelectedItem(), new ArrayList<>(Arrays.asList(palabrasClave)), ((Cliente)Tienda.tienda.getUsuarioLogueado()).getUbicacion());
         modelo=new ListaProductos (productosEncontrados);
+        tProductosEncontrados.setModel(modelo);
     }//GEN-LAST:event_bBuscarActionPerformed
 
 
