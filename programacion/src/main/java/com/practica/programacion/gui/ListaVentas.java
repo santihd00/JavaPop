@@ -30,6 +30,7 @@ public class ListaVentas extends ListaElementos {
                 break;
             case 3:
                 clase = Date.class;
+                break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
         }
@@ -53,6 +54,7 @@ public class ListaVentas extends ListaElementos {
                 break;
             case 3:
                 o = v.getFechaCompra();
+                break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
         }

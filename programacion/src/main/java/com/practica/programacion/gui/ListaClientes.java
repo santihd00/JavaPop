@@ -64,6 +64,7 @@ public class ListaClientes extends ListaElementos {
                 }else{
                     o=Boolean.FALSE;
                 }
+                break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
         }

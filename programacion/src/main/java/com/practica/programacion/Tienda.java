@@ -4,10 +4,19 @@
 package com.practica.programacion;
 
 import com.practica.programacion.gui.Principal;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 // Start of user code (user defined imports)
@@ -22,6 +31,7 @@ public class Tienda implements Serializable {
 
     private static final long serialVersionUID = 60L;
 
+    public static DateFormat sdfDD_MM_YYYY = new SimpleDateFormat("dd/MM/yyyy");
     /**
      * The constructor.
      */
@@ -35,7 +45,7 @@ public class Tienda implements Serializable {
     public Usuario UsuarioLogueado;
     public static Tienda tienda = new Tienda();
     public Administrador admin;
-    private Principal ventanaPrincipal;//Ventana por la que hay que pasar para llegar a las demás
+    private transient Principal ventanaPrincipal;//Ventana principal de la aplicacion
     /**
      * Description of the property clientes.
      */
@@ -169,29 +179,35 @@ public class Tienda implements Serializable {
     }
 
     /**
-     * ArrayList que recoge todas las ventas realizadas ordenándolas por la
-     * fecha que se realizaron
+     * ordena todas las ventas realizadas y devuelve las que se realizaron después de una fecha
      *
+     * @param fechaParaComparar
      * @return
      */
-
-    public ArrayList<Venta> getVentas() {
-        ArrayList<Venta> resultado = new ArrayList<>();
+    public ArrayList<Venta> getVentas(Date fechaParaComparar) {
+        ArrayList<Venta> resultadoInicial = new ArrayList<>();
         Iterator<Cliente> iListClientes = getClientes().iterator();
         while (iListClientes.hasNext()) {
             Cliente cliente = iListClientes.next();
-            resultado.addAll(cliente.getVentas());
-            Collections.sort(resultado, new CriterioAntiguedadVentas());
+            resultadoInicial.addAll(cliente.getVentas());
         }
-        return resultado;
+        Collections.sort(resultadoInicial, new CriterioAntiguedadVentas());
+        ArrayList<Venta> resultadoFinal = new ArrayList<>();
+        Iterator<Venta> iListVentas = resultadoInicial.iterator();
+        while (iListVentas.hasNext()){
+            Venta venta = iListVentas.next();
+            if (venta.getFechaCompra().compareTo(fechaParaComparar)>0){
+                resultadoFinal.add(venta);
+            }
+        }
+        return resultadoFinal;
     }
 
     /**
-     * devuelve todos los productos de la tienda en una sola lista 
+     * devuelve todos los productos de la tienda en una sola lista
      *
      * @return
      */
-
     public ArrayList<Producto> getProductosAsList() {
         ArrayList<Producto> resultado = new ArrayList<>();
         Iterator<ArrayList<Producto>> iListPro = getProductos().values().iterator();
@@ -202,8 +218,10 @@ public class Tienda implements Serializable {
         }
         return resultado;
     }
+
     /**
      * añade un producto al hashmap de productos de la tienda
+     *
      * @param producto
      */
     //TODO: Comentar. Antes estaba dentro del método añadirProducto(Producto producto) de Cliente
@@ -216,19 +234,22 @@ public class Tienda implements Serializable {
         productos.add(producto);
     }
 
-        /**
+    /**
      * elimina un producto al hashmap de productos de la tienda
+     *
      * @param producto
      */
     public void eliminarProducto(Producto producto) {
         ArrayList<Producto> productos = getProductos().get(producto.getCategoria());
         productos.remove(producto);
     }
+
     /**
      * Método para verificar si el usuario ya existe en la tienda o no
+     *
      * @param correo
      * @param clave
-     * @return 
+     * @return
      */
     public Usuario verificarUsuario(String correo, String clave) {
         if (correo.equalsIgnoreCase(admin.getCorreo())) {
@@ -251,5 +272,33 @@ public class Tienda implements Serializable {
         return null;
     }
 
+    public static void cargarTienda() {
+
+        try {
+            FileInputStream fi = new FileInputStream(new File("Javapop.dat"));
+            ObjectInputStream oi = new ObjectInputStream(fi);
+
+            // Read objects
+            Tienda.tienda = (Tienda) oi.readObject();
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.exit(-1);
+        }
+    }
+    public static void guardarTienda(){
+    try {
+            File fichero = new File("Javapop.dat");
+            System.out.println(fichero.getAbsolutePath());
+            FileOutputStream f = new FileOutputStream(fichero);
+            ObjectOutputStream os = new ObjectOutputStream(f);
+            os.writeObject(Tienda.tienda);
+            os.close();
+            f.close();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+            System.exit(-1);
+        }
+    }
 }
 //TODO: Terminar los comentarios

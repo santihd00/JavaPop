@@ -2,10 +2,8 @@ package com.practica.programacion;
 
 import com.practica.programacion.gui.Principal;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,18 +28,7 @@ public class Inicial {
                 System.exit(0);
             }
         }
-        try {//Archivo donde se guarda la tienda para la próxima vez
-            FileInputStream fi = new FileInputStream(new File("Javapop.dat"));
-            ObjectInputStream oi = new ObjectInputStream(fi);
-
-            // Read objects
-            Tienda.tienda = (Tienda) oi.readObject();
-
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            System.exit(-1);
-        }
-        Tienda t = Tienda.tienda;
+        Tienda.cargarTienda();
         Principal principal = new Principal();
         principal.setVisible(true);
         //Este código era la parte que emulaba la interfaz de usuario
@@ -119,19 +106,7 @@ public class Inicial {
         }
          Notificacion solicitud=notif.get(0);
         Venta venta_1 = solicitud.getProdComprado().getVendedor().generarVenta(solicitud);
-        
-        try {
-            File fichero = new File("miTienda.dat");
-            System.out.println(fichero.getAbsolutePath());
-            FileOutputStream f = new FileOutputStream(fichero);
-            ObjectOutputStream os = new ObjectOutputStream(f);
-            os.writeObject(Tienda.tienda);
-            os.close();
-            f.close();
-        } catch (IOException e) {
-            System.out.println(e.toString());
-            System.exit(-1);
-        }
+        Tienda.guardarTienda();
     }
 
 }
