@@ -1,5 +1,6 @@
 package com.practica.programacion.gui;
 
+import com.practica.programacion.Tienda;
 import com.practica.programacion.Venta;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +30,7 @@ public class ListaVentas extends ListaElementos {
                 clase = String.class;
                 break;
             case 3:
-                clase = Date.class;
+                clase = String.class;
                 break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
@@ -39,21 +40,21 @@ public class ListaVentas extends ListaElementos {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        // Buscamos el Producto correspondiente a la línea solicitada
+        // Buscamos el producto correspondiente a la línea solicitada
         Object o = null;
         Venta v = (Venta) elementos.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                o = v.getComprador();
+                o = v.getComprador().getNombre();
                 break;
             case 1:
-                o = v.getVendedor();
+                o = v.getVendedor().getNombre();
                 break;
             case 2:
-                o = v.getProducto();
+                o = v.getProducto().getTitulo();
                 break;
             case 3:
-                o = v.getFechaCompra();
+                o = Tienda.sdfDD_MM_YYYY.format(v.getFechaCompra());
                 break;
             default:
                 System.out.println("Error: getColumnClass(): número de columna fuera de rango " + columnIndex);
