@@ -2,11 +2,11 @@ package com.practica.programacion;
 
 import com.practica.programacion.gui.Principal;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -28,18 +28,7 @@ public class Inicial {
                 System.exit(0);
             }
         }
-        try {//Archivo donde se guarda la tienda para la próxima vez
-            FileInputStream fi = new FileInputStream(new File("Javapop.dat"));
-            ObjectInputStream oi = new ObjectInputStream(fi);
-
-            // Read objects
-            Tienda.tienda = (Tienda) oi.readObject();
-
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            System.exit(-1);
-        }
-        Tienda t = Tienda.tienda;
+        Tienda.cargarTienda();
         Principal principal = new Principal();
         principal.setVisible(true);
         //Este código era la parte que emulaba la interfaz de usuario
@@ -51,18 +40,10 @@ public class Inicial {
         Cliente clienteConectado = Tienda.tienda.getClientes().get(0);
         ArrayList<Producto> busqueda_1 = Tienda.tienda.buscarProductos(Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, palabrasClave,clienteConectado.getUbicacion());
         Producto p1 = busqueda_1.get(0);
-        p1.reservar(clienteConectado);
+        p1
         Cliente vendedor = p1.getVendedor();
-        ArrayList<Notificacion> notif=vendedor.getNotificaciones();
-        System.out.println("Notificaciones de solicitudes de compra recibidas \n"+notif);
-        Iterator<Notificacion> iNotif =notif.iterator();
-        while (iNotif.hasNext()){
-            Notificacion n=iNotif.next();
-            System.out.println(n);
-        }
-        Notificacion solicitud=notif.get(0);
-        Venta venta_1 = solicitud.getProdComprado().getVendedor().generarVenta(solicitud);
-        System.out.println(venta_1.generarFichero());
+       
+       
         System.out.println("Realizando búsqueda con los mismos datos por segunda vez...");
         Cliente clienteConectado2 = Tienda.tienda.getClientes().get(1);
      ArrayList<Producto> busqueda_2 = Tienda.tienda.buscarProductos(Producto.TipoProducto.CONSOLAS_VIDEOJUEGOS, palabrasClave,clienteConectado2.getUbicacion());        
@@ -115,18 +96,17 @@ public class Inicial {
         Tienda.tienda.getClientes().add(cliente_3);
         Tienda.tienda.getClientes().add(cliprof_1);
         Tienda.tienda.getClientes().add(cliprof_2);
-        try {
-            File fichero = new File("miTienda.dat");
-            System.out.println(fichero.getAbsolutePath());
-            FileOutputStream f = new FileOutputStream(fichero);
-            ObjectOutputStream os = new ObjectOutputStream(f);
-            os.writeObject(Tienda.tienda);
-            os.close();
-            f.close();
-        } catch (IOException e) {
-            System.out.println(e.toString());
-            System.exit(-1);
+        producto_1.reservar(cliente_2);
+         ArrayList<Notificacion> notif=cliente_1.getNotificaciones();
+        System.out.println("Notificaciones de solicitudes de compra recibidas \n"+notif);
+        Iterator<Notificacion> iNotif =notif.iterator();
+        while (iNotif.hasNext()){
+            Notificacion n=iNotif.next();
+            System.out.println(n);
         }
+         Notificacion solicitud=notif.get(0);
+        Venta venta_1 = solicitud.getProdComprado().getVendedor().generarVenta(solicitud);
+        Tienda.guardarTienda();
     }
 
 }

@@ -64,9 +64,9 @@ public class Venta implements Serializable {
     }
     @Override
     public String toString() {
-        String txt = "Venta:{n";
+        String txt = "Venta:{\n";
         txt = txt + producto.toString() + "\n";
-        txt = txt + "Fecha de venta: " + fechaCompra.toString() + "n";
+        txt = txt + "Fecha de venta: " + Tienda.sdfDD_MM_YYYY.format(fechaCompra) + "n";
         txt = txt + "Datos comprador:n";
         txt = txt + "- DNI:" + comprador.getDNI() + "\n";
         txt = txt + "- Nombre: " + comprador.getNombre() + "\n";

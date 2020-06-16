@@ -10,9 +10,7 @@ import com.practica.programacion.Producto;
 import com.practica.programacion.Producto.EstadoProducto;
 import com.practica.programacion.Producto.TipoProducto;
 import com.practica.programacion.Tienda;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +22,6 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class AñadirProductos extends javax.swing.JDialog {
 
-    DateFormat sdfDD_MM_YYYY = new SimpleDateFormat("dd_MM_yyyy");
 
     /**
      * Creates new form AñadirProductos
@@ -35,7 +32,7 @@ public class AñadirProductos extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Date fechaActual = new Date();
-        tfFechaPublicacion.setText(sdfDD_MM_YYYY.format(fechaActual));
+        tfFechaPublicacion.setText(Tienda.sdfDD_MM_YYYY.format(fechaActual));
     }
 
     /**
@@ -171,7 +168,7 @@ public class AñadirProductos extends javax.swing.JDialog {
         String ubiUsuario= ((Cliente)Tienda.tienda.getUsuarioLogueado()).getUbicacion();
         producto.setUbicacion(ubiUsuario);
         try {
-            producto.setFechaPublicacion(sdfDD_MM_YYYY.parse(tfFechaPublicacion.getText()));
+            producto.setFechaPublicacion(Tienda.sdfDD_MM_YYYY.parse(tfFechaPublicacion.getText()));
         } catch (ParseException ex) {
             Logger.getLogger(AñadirProductos.class.getName()).log(Level.SEVERE, null, ex);
         }

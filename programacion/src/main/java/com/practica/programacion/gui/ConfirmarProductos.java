@@ -9,6 +9,8 @@ import com.practica.programacion.Cliente;
 import com.practica.programacion.Notificacion;
 import com.practica.programacion.Tienda;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -20,8 +22,8 @@ public class ConfirmarProductos extends ListaElementosSwing {
      * Creates new form ProductosPropios
      */
     public ConfirmarProductos() {
-        super(new ListaNotificaciones(((Cliente)Tienda.tienda.getUsuarioLogueado()).getNotificaciones()));
-        
+        super(new ListaNotificaciones(((Cliente) Tienda.tienda.getUsuarioLogueado()).getNotificaciones()));
+
         init();
         setTitle("Lista de productos por confirmar");
     }
@@ -34,8 +36,18 @@ public class ConfirmarProductos extends ListaElementosSwing {
     @Override
     protected void button1(ActionEvent evt) {
         int row = tElementos.getSelectedRow();
-((Cliente)Tienda.tienda.getUsuarioLogueado()).generarVenta((Notificacion) modelo.getElemento(row));
+        ((Cliente) Tienda.tienda.getUsuarioLogueado()).generarVenta((Notificacion) modelo.getElemento(row));
+        Notificacion notificacion = (Notificacion) modelo.getElemento(row);
+        Iterator<Notificacion> iListNotif = modelo.elementos.iterator();
+       ArrayList<Notificacion> notifs= new ArrayList();
+        while (iListNotif.hasNext()) {
+            Notificacion notif = iListNotif.next();
+            if (!notificacion.getProdComprado().equals(notificacion.getProdComprado())) {
+                notifs.add(notif);
 
+            }
+        }
+ modelo.elementos=notifs;
     }
 
     @Override

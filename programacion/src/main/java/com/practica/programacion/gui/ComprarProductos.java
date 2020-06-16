@@ -135,6 +135,8 @@ public class ComprarProductos extends javax.swing.JInternalFrame {
         if (row >= 0) {
            Producto productoSolicitado =(Producto)modelo.getElemento(row);
            productoSolicitado.getVendedor().notificar((Cliente) Tienda.tienda.getUsuarioLogueado(), productoSolicitado);
+         ProductoSolicitado dProductoSolicitado =new ProductoSolicitado(Tienda.tienda.getVentanaPrincipal(),true);
+         dProductoSolicitado.setVisible(true);
         }
     }//GEN-LAST:event_bSolicitarCompraActionPerformed
 
